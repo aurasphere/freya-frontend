@@ -1,0 +1,9 @@
+<h3>Login</h3>
+
+<form [formGroup]="loginForm" (ngSubmit)="doLogin(loginForm.value)">
+	
+	Username: <input type="text" formControlName="username">
+	Password: <input type="text" formControlName="password">
+	<button type="submit"> Login</button>
+	<p *ngIf="showErrorMessage">Username o password errati</p>
+</form>
