@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../../services/item.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { NodesService } from '../../services/nodes.service';
+import { Node } from '../../model/node.model';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  templateUrl: './nodes-list.component.html',
+  styleUrls: ['./nodes-list.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class DetailsComponent implements OnInit {
-  item = {};
+export class NodesListComponent implements OnInit {
+  nodes : Node[] = [];
+  columnsToDisplay = ["id", "name", "host", "location", "dataCenter"];
 
   constructor(
     private route: ActivatedRoute,
-	private itemService: ItemService
+	private nodesService: NodesService
   ) { }
   
   ngOnInit() {
-  this.route.paramMap.subscribe(params => {
-    this.itemService.getItemById(params.get('itemId')).subscribe(i => this.item = i);
-  });
-}
+    this.nodesService.getNodesList().subscribe(nodes => this.nodes = nodes);
+  }
 
 }

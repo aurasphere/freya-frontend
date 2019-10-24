@@ -1,40 +1,55 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ListComponent } from './list.component';
-import { AppComponent } from './template/app.component';
-import { DetailsComponent } from './details.component';
+import {MatListModule, MatSidenavModule, MatToolbarModule , MatExpansionModule, MatTableModule } from '@angular/material';
+
+import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NodesListComponent } from './pages/nodes/nodes-list.component';
+import { AddNodeComponent } from './pages/nodes/add-node.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthService } from './services/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './misc/auth.interceptor';
+import { AuthService } from './services/auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
-    ListComponent,
-	DetailsComponent,
-	LoginComponent,
-	AppComponent
+    LoginComponent,
+    AppComponent,
+    DashboardComponent,
+    AddNodeComponent,
+    NodesListComponent
   ],
   imports: [
     BrowserModule,
-	ReactiveFormsModule,
-	HttpClientModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    FontAwesomeModule,
+    MatExpansionModule,
+    MatTableModule,
     RouterModule.forRoot([
-      { path: 'dettagli/:itemId', component: DetailsComponent},
-      { path: 'login', component: LoginComponent },
-	  { path: '', component: AppComponent}
+      //{ path: 'dettagli/:itemId', component: DetailsComponent},
+      { path: "login", component: LoginComponent },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "nodes/add", component: AddNodeComponent },
+      { path: "nodes", component: NodesListComponent },
+      { path: "**", redirectTo: "dashboard" }
     ])
   ],
   providers: [AuthService,
-   {
-     provide: HTTP_INTERCEPTORS,
-     useClass: AuthInterceptor,
-     multi: true
-   }],
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

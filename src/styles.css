@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { padding: 0; margin: 0;}
+
+.full-height {
+	height: 100vh;
+}
+
+.inline {
+	display: inline;
+}
+
+.vm-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.mr-5 {
+	margin-right: 5%;
+}
+
+.mr-10 {
+	margin-right: 10%;
+}
+
+.ml-5 {
+	margin-left: 5%;
+}
+
+.mh-5 {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.w-100 { width: 100%;}
+.h-100 { height: 100%;}

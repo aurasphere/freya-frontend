@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+    <span>My app</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="full-height">
+    <mat-sidenav mode="push" opened="true">
+        <mat-nav-list>
+            <mat-list-item [routerLink]="['dashboard']">
+                    <fa-icon [icon]="faServerIcon" class="vm-auto mr-10"></fa-icon>
+                    <h4>Dashboard</h4>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['nodes']">
+                <fa-icon [icon]="faServerIcon" class="vm-auto mr-10"></fa-icon>
+                <h4>Nodes</h4>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['instances']">
+                    <fa-icon [icon]="faServerIcon" class="vm-auto mr-10"></fa-icon>
+                    <h4>Instances</h4>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['applications']">
+                    <fa-icon [icon]="faServerIcon" class="vm-auto mr-10"></fa-icon>
+                    <h4>Applications</h4>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['monitoring']">
+                    <fa-icon [icon]="faServerIcon" class="vm-auto mr-10"></fa-icon>
+                    <h4>Monitoring</h4>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['logs']">
+                    <fa-icon [icon]="faServerIcon" class="vm-auto mr-10"></fa-icon>
+                    <h4>Logs</h4>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['datacenters']">
+                    <fa-icon [icon]="faServerIcon" class="vm-auto mr-10"></fa-icon>
+                    <h4>Datacenters</h4>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

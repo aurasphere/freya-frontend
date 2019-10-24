@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../../services/item.service';
+import { NodesService } from '../../services/nodes.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  templateUrl: './add-node.component.html',
+  styleUrls: ['./add-node.component.css']
 })
-export class DetailsComponent implements OnInit {
+export class AddNodeComponent implements OnInit {
   item = {};
 
   constructor(
     private route: ActivatedRoute,
-	private itemService: ItemService
+	private itemService: NodesService
   ) { }
   
   ngOnInit() {
   this.route.paramMap.subscribe(params => {
-    this.itemService.getItemById(params.get('itemId')).subscribe(i => this.item = i);
+    //this.itemService.getItemById(params.get('itemId')).subscribe(i => this.item = i);
   });
 }
 
