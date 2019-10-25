@@ -1,0 +1,94 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$primary: (
+    50 : #f0fbfb,
+    100 : #dbf4f5,
+    200 : #c3edee,
+    300 : #aae6e7,
+    400 : #98e0e1,
+    500 : #86dbdc,
+    600 : #7ed7d8,
+    700 : #73d2d3,
+    800 : #69cdce,
+    900 : #56c4c5,
+    A100 : #ffffff,
+    A200 : #f6ffff,
+    A400 : #c3feff,
+    A700 : #a9feff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($primary, 900);
+$candy-app-accent:  mat-palette($mat-red);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-dark-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);
+
+
+/* You can add global styles to this file, and also import other style files */
+html, body { padding: 0; margin: 0;}
+
+.full-height {
+	height: 100vh;
+}
+
+.inline {
+	display: inline;
+}
+
+.vm-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.mr-5 {
+	margin-right: 5%;
+}
+
+.mr-10 {
+	margin-right: 10%;
+}
+
+.ml-5 {
+	margin-left: 5%;
+}
+
+.mh-5 {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.w-100 { width: 100%;}
+.h-100 { height: 100%;}
